@@ -1,5 +1,5 @@
 //
-//  Cart.swift
+//Cart.swift
 //  swift-shopping-cart
 //
 //  Created by James Campagno on 9/26/16.
@@ -30,31 +30,37 @@ class Cart {
         }
     }
     
-    func items(name: String) -> [Item]{
+    func items(withName name: String) -> [Item]{
+        var finalArray = [Item]()
+        
         for item in items {
             if item.name == name {
-                items.append(item)
+                finalArray.append(item)
             }
         }
-        return items
+        return finalArray
     }
     
     func items(withMinPrice price:Int)-> [Item]{
+        var finalArray = [Item]()
+        
         for item in items {
             if item.priceInCents >= price {
-                items.append(item)
+                finalArray.append(item)
             }
         }
-        return items
+        return finalArray
     }
 
     func items(withMaxPrice price:Int)-> [Item]{
+        var finalArray = [Item]()
+        
         for item in items {
             if item.priceInCents <= price {
-                items.append(item)
+                finalArray.append(item)
             }
         }
-        return items
+        return finalArray
     }
 
 }
